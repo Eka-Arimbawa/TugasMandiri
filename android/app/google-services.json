@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "1022925273876",
+    "project_id": "clovercell-9d97d",
+    "storage_bucket": "clovercell-9d97d.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1022925273876:android:4ad8cbbf2f085e333fe001",
+        "android_client_info": {
+          "package_name": "com.clovercell"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1022925273876-2noljqojdm78s8ae86dst5be1sbs24r2.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBbOt1f-F5mmCPJ9_x9MS7rTJlcT2S1vdQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1022925273876-2noljqojdm78s8ae86dst5be1sbs24r2.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

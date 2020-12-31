@@ -5,6 +5,10 @@ import android.content.Context;
 import com.facebook.react.PackageList;
 import com.facebook.react.ReactApplication;
 import com.imagepicker.ImagePickerPackage;
+<<<<<<< HEAD
+=======
+import com.imagepicker.ImagePickerPackage;
+>>>>>>> c80cb80d7b906d585bb0ab010c30ef0325309693
 import com.facebook.react.ReactInstanceManager;
 import com.facebook.react.ReactNativeHost;
 import com.facebook.react.ReactPackage;

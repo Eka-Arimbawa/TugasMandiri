@@ -52,10 +52,9 @@ class Signup extends React.Component {
         if (this.state.isLoading) {
             return (
                 <View style={styles.loading}>
-                    <ActivityIndicator size="small" color="#8bc01e">
+                    <ActivityIndicator size="small" color="#8bc01e" />
                         <Text>Akun berhasil dibuat</Text>
                         <Text>Kembali ke halaman login</Text>
-                    </ActivityIndicator>
                 </View>
             )
         }

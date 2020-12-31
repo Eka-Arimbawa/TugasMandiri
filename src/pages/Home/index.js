@@ -2,6 +2,10 @@ import React, { Component } from 'react' ;
 import { StyleSheet, View, Text, Button, TextInput, TouchableOpacity } from 'react-native' ;
 import { firebase } from '@react-native-firebase/auth';
 import firestore from '@react-native-firebase/firestore';
+// import imagePick from 'react-native-image-picker';
+var imagePick = require('react-native-image-picker');
+
+
 
 class Home extends React.Component {
     constructor(){
@@ -9,7 +13,8 @@ class Home extends React.Component {
         this.state = {
             namaProduk : '',
             harga: '',
-            berat: ''
+            jumlah: '',
+            image: null
         }
     }
 
@@ -20,15 +25,34 @@ class Home extends React.Component {
     }
 
     saveData = () => {
-        firestore()
-            .collection('Xiaomi')
-            // .doc('redmi')
-            .add(this.state);
+        firebase.firestore()
+            .collection('posts')
+            .doc('hp')
+            .set(this.state);
             this.setState({
                 namaProduk: '',
                 harga: '',
-                berat: ''
+                jumlah: '',
+                image: null
             })
+    }
+
+    pickImage = () => {
+        const options = {
+            quality: 0.5,
+            maxHeight: 200,
+            maxWidth: 200,
+            storageOptions: {
+                skipBackup: true
+            }
+        }
+        imagePick.launchImageLibrary(options, response => {
+           if (response.data) {
+               this.setState({
+                   image: 'data:image/jpeg;base64,' + response.data
+               })
+           }
+        });
     }
 
 
@@ -54,15 +78,26 @@ class Home extends React.Component {
                 </View>
                 <View style={styles.boxtextinput}>
                     <TextInput 
-                    placeholder="Harga"
+                    placeholder="Jumlah"
                     keyboardType="number-pad"
                     style={styles.inputtext}
-                    onChangeText={this.inputValue('berat')}
-                    value={this.state.berat} />
+                    onChangeText={this.inputValue('jumlah')}
+                    value={this.state.jumlah} />
                 </View>
+
+                <TouchableOpacity 
+                style={styles.button} onPress={this.pickImage.bind(this)} >
+                    <Text style={styles.buttontext}>Upload Image</Text>
+                </TouchableOpacity>
+
                 <TouchableOpacity 
                 style={styles.button} onPress={this.saveData} >
                     <Text style={styles.buttontext}>Save</Text>
+                </TouchableOpacity>
+
+                <TouchableOpacity 
+                style={styles.button} onPress={() => this.props.navigation.navigate('Post')} >
+                    <Text style={styles.buttontext}>Post</Text>
                 </TouchableOpacity>
             </View>
         )
@@ -97,7 +132,7 @@ const styles = StyleSheet.create({
         alignItems: 'center',
         justifyContent: 'center',
         elevation: 2,
-        marginBottom: 30
+        // marginBottom: 30
     },
     buttontext: {
         color: '#fff',
